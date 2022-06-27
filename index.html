@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./vendor/OwlCarousel/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="./vendor/fontawesome/fontawesome.css">
+    <link rel="stylesheet" href="./vendor/jquery-ui/jquery-ui.min.css">
+
     <link rel="stylesheet" href="./css/style.css">
-    <title>Loja Style</title>
+    <title>WebStore</title>
 </head>
 <body>
     
+    <!-- Topo e Menu -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="assets/images/header-logo.png" alt=""></a>
@@ -26,33 +29,37 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="products.html">Produtos</a>
+                        <a class="nav-link" href="#produtos">Produtos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Sobre nós</a>
+                        <a class="nav-link nav-modal-open" href="#sobre" rel="sobre">Sobre nós</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contato</a>
+                        <a class="nav-link nav-modal-open" href="#contato" rel="contato">Contato</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     
+    <!-- Banner -->
     <div class="banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <!--
                     <div class="caption">
-                        <h2>Ecommerce HTML Template</h2>
+                        <h2>NOVA COLEÇÃO</h2>
                         <div class="line-dec"></div>
-                        <p>HTML Template can be converted into your desired CMS theme. </p>
+                        <p>Confira a nova coleção Inverno 2022</p>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <!-- Itens no carroussel -->
     <div id="featured" class="featured-items">
         <div class="container">
             <div class="row">
@@ -141,7 +148,42 @@
             </div>
         </div>
     </div>
+
+    <!-- Formulário de novidades -->
+    <div class="subscribe-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="line-dec">
+                        <h1>Receba Novidades</h1>
+                    </div>
+                </div>
+                <div class="col-md-8 offset-md-2">
+                    <div class="main-content">
+                        <p>Insira seus dados abaixo para receber informações atualizadas de nossos produtos</p>
+                        <div class="container">
+                            <form id="subscribe" class="form" action="" method="get">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <fieldset>
+                                            <input name="email" type="text" class="form-control" id="email" placeholder="Seu e-mail...">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="button">Inscreva-se</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
+    <!-- Rodapé -->
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -153,11 +195,10 @@
                 <div class="col-md-12">
                     <div class="footer-menu">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Ajuda</a></li>
-                            <li><a href="#">Politica de privacidade</a></li>
-                            <li><a href="#">Trabalhe conosco</a></li>
-                            <li><a href="#">Contatos</a></li>
+                            <li><a href="#top">Home</a></li>
+                            <li><a href="#prodeutos">Produtos</a></li>
+                            <li><a href="#sobre">Sobre</a></li>
+                            <li><a href="#contato">Contato</a></li>
                         </ul>
                     </div>
                 </div>
@@ -180,16 +221,83 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright-text">
-                        <p>WebStore &copy; Todos os direitos reservados
+                        <div>
+                            <p>WebStore &copy; Todos os direitos reservados</p>
+                        </div>
+                        <div>
+                            <p>Desenvolvido por Luciano Pereira</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
-        <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="./vendor/OwlCarousel/dist/owl.carousel.js"></script>
-        <script src="./js/custom.js"></script>
-    </body>
-    </html>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Body
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contato" class="visually-hidden">
+        <form action="post" class="form">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite seu nome" aria-describedby="helpNome">
+              <small id="helpNome" class="text-muted">Digite um nome válido</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" name="email" id="email" class="form-control" placeholder="Digite seu e-mail" aria-describedby="helpEmail">
+                <small id="helpEmail" class="text-muted">Digite um e-mail válido</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Data</label>
+                <input type="text" name="date" id="date" class="form-control" placeholder="Digite sua data de nascimento" aria-describedby="helpDate">
+                <small id="helpDate" class="text-muted">Digite uma data válida</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Telefone</label>
+                <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite seu telefone com DDD" aria-describedby="helpPhone">
+                <small id="helpPhone" class="text-muted">Digite um telefone válido</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="cpf" class="form-label">Cpf</label>
+                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite seu cpf" aria-describedby="helpCpf">
+                <small id="helpCpf" class="text-muted">Digite um cpf válido</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+
+        </form>
+    </div>
+
+    <div id="sobre" class="visually-hidden">
+        <p>Desenvolvido por Luciano Pereira</p>
+        <p>Aluno do Curso de Desenvolvedor FullStack Python</p>
+        <p>EBAC - Escola Britânica de Artes Criativas & Tecnologia</p>
+    </div>
+    
+     <!--Bibliotecas-->   
+    <script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./vendor/OwlCarousel/dist/owl.carousel.js"></script>
+    <script src="./vendor/jquery-mask/jquery.mask.min.js"></script>
+    <script src="./vendor/jquery-ui/jquery-ui.min.js"></script>
+    <!--Scripts Customizados-->
+    <script src="./js/custom.js"></script>
+</body>
+</html>

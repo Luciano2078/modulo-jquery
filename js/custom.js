@@ -51,12 +51,117 @@ $(document).ready(function(){
      
      
      
-     
+     /* 
+      * Callback
+      * endendendo ações que começam ao termino de outra
+     */
+
+     $('.featured-item:nth(1)')
+      .hide(2000, function(){
+        console.log( $(this).find('h4').text() + ' esgotado')
+      })
+
+      .show(2000, function(){
+         console.log( $(this).find('h4').text() + ' em estoque')
+      })
 
 
 
+      /* 
+      * Animações
+      */
 
+      const duracao = 2000  // equivalente a 1 segundo
+      $('.featured-item:nth(0)')
+      .fadeOut(duracao)
+      .fadeIn(duracao)
+      
+      $('#form-submit').on('click', function(e){
+         e.preventDefault()
 
+         if($('#email').val() != '' ){
+            $('#email').animate({
+               opacity: "toggle",
 
+            }, duracao)
+         }
 
+      });
+
+      /*
+      *  Ouvinte de eventos .nav-modal-open
+      */
+
+   $('.nav-modal-open').on('click', function(e){
+      e.preventDefault();
+
+      let elem = $(this).attr('rel')
+
+      $('.modal-body').html($('#'+elem).html())
+      $('.modal-header h5.modal-title').html($(this).text())
+
+      let myModal = new bootstrap.Modal($('#modelId'))
+
+      myModal.show()
+   })
+
+   function validate( elem ){
+      if(elem.val() == '') {
+
+         elem.parent().find('.text-muted').show()
+         elem.addClass('invalid')
+
+         return false
+      } else {
+         elem.parent().find('.text-muted').hide()
+         elem.removeClass('invalid')
+      }
+   }
+
+   $('body').on('submit', '.modal-body .form', function(e){
+      e.preventDefault()
+
+      const inputName = $('#nome')
+      const inputEmail = $('#email')
+
+      validate(inputName)
+      validate(inputEmail)
+
+      if(inputName.hasClass('invalid') || inputEmail.hasClass('invalid')){
+         alert('Verificar campos obrigatórios')
+         return false
+      } else {
+         $(this).submit()
+         }
+   })
+
+   $('body').on('blur','#nome', function(){
+      validate($(this))
+   })
+
+   $('body').on('blur','#email', function(){
+      validate($(this))
+   })
+
+   $('body').on('focus','#date', function(){
+      $(this).datepicker()
+   })
+
+   $('body').on('blur','#date', function(){
+      validate($(this))
+      $('#date').mask('00/00/0000');
+   })
+
+   $('body').on('blur','#phone', function(){
+      validate($(this))
+      $('#phone').mask('(00)00000-0000');
+   })
+
+   $('body').on('blur','#cpf', function(){
+      validate($(this))
+      $('#cpf').mask('000.000.000-00');
+   })
+ 
+
+   
 })
