@@ -76,7 +76,7 @@ a {
 	z-index: 999;
 	position: absolute;
 	left: 50%;
-	top: 105px;
+	top: 110px;
 	transform: translateX(-50%);
 }
 .navbar-dark .navbar-nav .nav-item {
@@ -215,26 +215,17 @@ a {
 	padding: 80px 0px;
 	text-align: center;
 }
-.subscribe-form .section-heading  {
-	margin-top: 0px;
-}
-.subscribe-form .section-heading h1 {
-	color: #fff;
-}
-.subscribe-form .section-heading .line-dec {
-	background-color: #fff;
-	margin: 0 auto;
-}
-.subscribe-form .main-content p {
-	font-size: 17px;
-	color: #fff;
+
+.subscribe-form  .main-content p {
+	font-size: 18px;
+	color: #222f3e;
 	margin-bottom: 30px;
 }
 .subscribe-form .main-content form  {
 	color: #fff;
 	display: inline;
 }
-.subscribe-form .main-content form input {
+.subscribe-form  .main-content form input {
 	display: inline;
 }
 .subscribe-form .main-content form input {
@@ -249,17 +240,17 @@ a {
 .subscribe-form .main-content form button:focus {
 	color: #fff!important;
 }
-.subscribe-form .main-content form button {
+.subscribe-form .main-content form .button {
 	width: 100%;
-	height: 45px;
+	height: 50px;
 	cursor: pointer;
-	background-color: #fff;
+	background-color: #3c6382;
 	outline: none;
 	border-radius: 5px;
 	padding: 10px 15px;
 	display: inline-block;
-	color: #3a8bcd;
-	font-size: 14px;
+	color: #b8e994;
+	font-size: 20px;
 	text-transform: uppercase;
 	font-weight: 300;
 	letter-spacing: 0.4px;
@@ -378,6 +369,17 @@ a {
 	font-weight: 700;
 	background-color: transparent;
 }
+
+.invalid {
+	border-color: #f00;
+}
+
+.text-muted {
+	display: none;
+}
+
+
+
 /* Isotope Transitions
 ------------------------------- */
 .isotope,
